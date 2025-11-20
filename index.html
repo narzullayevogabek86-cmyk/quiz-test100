@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quiz Test Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="overlay" id="welcome-screen">
+        <div class="modal-card fade-in">
+            <div class="modal-header">
+                <h2>Assalomu aleykum!</h2>
+            </div>
+            <p class="modal-text">Quiz testiga xush kelibsiz — tayyor bo'lsangiz rejimni tanlang.</p>
+            
+            <div class="mode-selection">
+                <button class="mode-btn outline" onclick="startMode('practice')">
+                    <i class="fa-solid fa-book-open"></i>
+                    <div>
+                        <span>Takrorlash</span>
+                        <small>Barcha savollar (ketma-ket)</small>
+                    </div>
+                </button>
+
+                <button class="mode-btn filled" onclick="startMode('exam')">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <span>Imtihon</span>
+                        <small>30 ta tasodifiy savol</small>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container" id="quiz-app" style="display: none;">
+        
+        <header>
+            <div class="top-bar">
+                <div class="logo">
+                    <h1>Quiz Test</h1>
+                    <span class="badge">PRO</span>
+                </div>
+                <span class="author"><i class="fa-regular fa-user"></i> Og'abek_Narzullayev</span>
+            </div>
+            
+            <div class="info-bar">
+                <div class="info-item active">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span id="mode-name">Yuklanmoqda...</span>
+                </div>
+                <div class="info-item" onclick="location.reload()" style="cursor: pointer;">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>Qayta yuklash</span>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span id="current-status">1 / 30</span>
+                    <span id="score-status">0 to'g'ri</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="question-card slide-up">
+                <h3 id="question-text">Savol yuklanmoqda...</h3>
+                <div id="options-list" class="options-container">
+                    </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="overlay" id="result-screen" style="display: none;">
+        <div class="modal-card scale-up">
+            <div class="result-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2>Natijalar</h2>
+            <div class="score-circle">
+                <span id="final-score">0</span>
+                <small id="total-count">/ 30</small>
+            </div>
+            <p id="result-message">Yaxshi natija!</p>
+            
+            <button class="mode-btn filled full-width" onclick="location.reload()">
+                <i class="fa-solid fa-rotate"></i> Qayta boshlash
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
